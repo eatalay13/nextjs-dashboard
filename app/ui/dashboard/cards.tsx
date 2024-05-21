@@ -25,8 +25,6 @@ export default async function CardWrapper() {
 
   return (
     <>
-      {/* NOTE: comment in this code when you get to this point in the course */}
-
       <Card title="Collected" value={totalPaidInvoices} type="collected" />
       <Card title="Pending" value={totalPendingInvoices} type="pending" />
       <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
@@ -39,15 +37,13 @@ export default async function CardWrapper() {
   );
 }
 
-export function Card({
-  title,
-  value,
-  type,
-}: {
+interface CardProps {
   title: string;
   value: number | string;
   type: 'invoices' | 'customers' | 'pending' | 'collected';
-}) {
+}
+
+export function Card({ title, value, type }: CardProps) {
   const Icon = iconMap[type];
 
   return (
@@ -57,8 +53,7 @@ export function Card({
         <h3 className="ml-2 text-sm font-medium">{title}</h3>
       </div>
       <p
-        className={`${lusitana.className}
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+        className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
       >
         {value}
       </p>

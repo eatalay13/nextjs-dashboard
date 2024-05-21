@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     description: "Müşterilerinizi görüntüleyin ve yönetin. Müşterilerinizi düzenleyin, silin ve oluşturun.",
 };
 
-export default async function Page({
-    searchParams,
-}: {
+interface CustomerProps {
     searchParams?: {
         query?: string;
         page?: string;
     };
-}) {
+}
+
+export default async function Page({ searchParams }: CustomerProps) {
     const query = searchParams?.query || '';
 
     return (

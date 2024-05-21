@@ -13,15 +13,14 @@ export const metadata: Metadata = {
     description: 'Faturalarınızı görüntüleyin ve yönetin. Faturalarınızı düzenleyin, silin ve oluşturun.',
 };
 
-
-export default async function Page({
-    searchParams,
-}: {
+interface InvoiceProps {
     searchParams?: {
         query?: string;
         page?: string;
     };
-}) {
+}
+
+export default async function Page({ searchParams }: InvoiceProps) {
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
 
