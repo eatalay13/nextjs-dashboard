@@ -18,7 +18,7 @@ export default function RootLayout({
   createInvoiceModal,
 }: {
   children: ReactNode;
-  createInvoiceModal?: ReactNode;
+  createInvoiceModal: ReactNode;
 }) {
   return (
     <html lang="en">
