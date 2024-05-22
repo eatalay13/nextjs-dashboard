@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  createInvoiceModal,
+  modals,
 }: {
   children: ReactNode;
-  createInvoiceModal: ReactNode;
+  modals: ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        {createInvoiceModal}
+        {modals}
         {children}
       </body>
     </html>
