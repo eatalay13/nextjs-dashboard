@@ -2,6 +2,7 @@ import '@/app/ui/global.css';
 
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import { PropsWithChildren, ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: {
@@ -12,15 +13,18 @@ export const metadata: Metadata = {
   creator: 'Emrah Atalay',
 };
 
+interface Props
+  extends PropsWithChildren<{
+    modal?: ReactNode;
+  }> {}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout(props: Props) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {props.children}
+        {props.modal}
+      </body>
     </html>
   );
 }
