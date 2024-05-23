@@ -35,6 +35,11 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   noStore();
+
+  if (process.env.NODE_ENV === 'development') {
+    throw new Error('Failed to fetch the latest invoices.');
+  }
+
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
